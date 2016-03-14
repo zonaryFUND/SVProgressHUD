@@ -387,8 +387,12 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
         CGSize constraintSize = CGSizeMake(200.0f, 300.0f);
         CGRect stringRect;
         if([string respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
-            stringRect = [string boundingRectWithSize:constraintSize
+            /*stringRect = [string boundingRectWithSize:constraintSize
                                               options:(NSStringDrawingOptions)(NSStringDrawingUsesFontLeading|NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin)
+                                           attributes:@{NSFontAttributeName: self.statusLabel.font}
+                                              context:NULL];*/
+            stringRect = [string boundingRectWithSize:constraintSize
+                                              options:0
                                            attributes:@{NSFontAttributeName: self.statusLabel.font}
                                               context:NULL];
         } else {
